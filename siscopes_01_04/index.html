@@ -1,0 +1,87 @@
+
+<html>
+  <head>
+      <style type="text/css">@import url("css/estilo.css");</style>  
+      <meta name="description" content="ESCANNER DE QRCODE PARA AUTENTICAÇÃO" />
+      <meta name="keywords" content="qrcode,qr code,scanner,barcode,javascript" />
+      <meta name="language" content="PT/BR" />
+    <title>PROJETO SISCOPES</title>  
+<!--_____________________________________________________________________________-->
+<!--_____________________________________________________________________________-->
+<!--_____________________________________________________________________________-->
+
+    <script type="text/javascript" src="javascript/llqrcode.js"></script>
+    <script type="text/javascript" src="javascript/webqr.js"></script>
+
+    <script type="text/javascript">
+    //FUNCTION PEGAR VALOR DA DIV E COLOCAR NUMA VARIAVEL
+    		function pegaValorDiv(){
+    		  var caminho = document.getElementById("result").innerHTML;
+    		  document.getElementById("teste2").value = caminho;
+          //alert(caminho);
+      }
+
+        function clickAuto(){
+          var caminho = document.getElementById("result").innerHTML;
+          document.getElementById("teste2").value = caminho;        
+           var comparar = "Escaneado...";
+           if(caminho != comparar){
+             document.nome_formulario.submit();
+           }else{
+            // window.setInterval('clickAuto()', 1000);
+             //header("refresh: 10;index.html");
+             timer = window.setTimeout("location.reload()", 20000);
+           }
+      	}
+   </script>
+<!--_____________________________________________________________________________-->
+<!--_____________________________________________________________________________-->
+<!--_____________________________________________________________________________-->
+ 
+  </head>
+  <body onload="myFunction()">
+  	<div id="main">
+    	<div id="header">
+    	   <p id="mp1">SISCOPES</p>
+    	</div>
+    	<div id="mainbody">
+        	<table class="tsel" border="0" width="100%">
+            	<tr>
+                	<td valign="top" align="center" width="50%">
+                  	<table class="tsel" border="0">
+                    	<tr>
+                      	<td><img class="selector" id="webcamimg" src="" onclick="setwebcam()" align="left" /></td>
+                      	<td><img class="selector" id="qrimg" src="" onclick="setimg()" align="right"/></td></tr>
+                    	<tr><td colspan="2" align="center">
+                    	<div id="outdiv">
+                    	</div></td></tr>
+                  	</table>
+                	</td>
+            	</tr>
+            	<tr><td colspan="3" align="center">
+            	</td></tr>
+            	<tr><td colspan="3" align="center">
+            	   <div id="result"></div>
+            	</td></tr>
+
+                    <script type="text/javascript">
+                    function myFunction(){  
+                      window.setInterval('clickAuto()', 3000);
+                    }
+                    </script>
+
+        	</table>
+              <form method="POST" action="teste2.php" name="nome_formulario">
+          			<input type="hidden" name="teste2" id= "teste2">
+          		<input type="hidden" value="Go" name="entrar" id="button" onclick="pegaValorDiv();"> 
+        		  </form>
+    	</div>&nbsp;
+    	<div id="footer">
+        	<img style="position:relative;top:0px;left:0px;margin:0;padding:0;" src=""/>
+        	<h5 align="center"><a target="_blank" href="">SISCOPES</a></h5>
+    	</div>
+  	</div>
+  	<canvas id="qr-canvas" width="800" height="600"></canvas>
+  	<script type="text/javascript">load();</script>
+  </body>
+</html>

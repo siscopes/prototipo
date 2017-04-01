@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<title>Pegar valor da div</title>
+	</head>
+	<script type="text/javascript">
+		function pegaValorDiv(){
+		var caminho = document.getElementById("teste").innerHTML; //aqui eu pego o valor da div 'teste' e coloco na variavel
+		document.getElementById("teste2").value = caminho; //aqui eu envio o conteudo da var para o campo 'teste2'
+		//alert(caminho);
+	}
+	</script>
+	<body>
+		<div id="teste">Qualquer_coisa</div>
+		<form method="POST" action="Arquivo.php" name="nomeForm">
+			<input type="hidden" name="teste2" id= "teste2">
+			<input type="submit" value="Go" onclick="pegaValorDiv();"> 
+		</form>
+	</body>
+
+		<script>
+		//   document.nomeForm.submit();
+		</script>
+
+</html>

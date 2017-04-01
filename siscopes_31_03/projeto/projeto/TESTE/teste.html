@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Pegar valor da div</title>
+</head>
+<script type="text/javascript">
+function pegaValorDiv(){
+var caminho = document.getElementById("teste").innerHTML; //aqui eu pego o valor da div 'teste' e coloco na variavel
+document.getElementById("teste2").value = caminho; //aqui eu envio o conteudo da var para o campo 'teste2'
+//alert(caminho);
+}
+</script>
+<body>
+<div id="teste">Qualquer_coisa</div>
+<form method="POST" action="Arquivo.php" name="testendo">
+<input type="hidden" name="teste2" id= "teste2">
+<input type="submit" value="Go" onClick="pegaValorDiv();">
+ <label for="enviar">Carregue aqui para enviar</label>
+    <input type="submit" id="enviar" />
+    <a href="javascript: submitform()">Envie</a>
+</form>
+<script type="text/javascript">
+    function submitform() {
+        document.testando.submit();
+    }
+</script>
+</body>
+</html>
+
+http://www.clubedohardware.com.br/forums/topic/851969-enviar-form-automaticamente-sem-enter-eou-bot%C3%A3o-submit-php-javascript/
